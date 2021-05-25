@@ -1,10 +1,8 @@
 package br.com.zupacademy.giovanna.mercadolivre.user.dto;
 
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
+import br.com.zupacademy.giovanna.mercadolivre.validation.UniqueValue;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -12,6 +10,7 @@ public class UsuarioRequest {
 
     @NotBlank(message = "O login não pode estar em branco e nem ser nulo")
     @Email(message = "O login deve ter um formato válido de e-mail")
+    @UniqueValue(domainClass = Usuario.class, fieldName = "login")
     private String login;
 
     @NotBlank(message = "A senha não pode estar em branco e nem ser nula")
