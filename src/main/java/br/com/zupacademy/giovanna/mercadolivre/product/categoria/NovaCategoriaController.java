@@ -1,6 +1,6 @@
-package br.com.zupacademy.giovanna.mercadolivre.categoria;
+package br.com.zupacademy.giovanna.mercadolivre.product.categoria;
 
-import br.com.zupacademy.giovanna.mercadolivre.categoria.dto.CategoriaRequest;
+import br.com.zupacademy.giovanna.mercadolivre.product.categoria.dto.CategoriaRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.util.Optional;
 
 @RestController
 public class NovaCategoriaController {

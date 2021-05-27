@@ -1,12 +1,10 @@
-package br.com.zupacademy.giovanna.mercadolivre.categoria.dto;
+package br.com.zupacademy.giovanna.mercadolivre.product.categoria.dto;
 
-import br.com.zupacademy.giovanna.mercadolivre.categoria.Categoria;
-import br.com.zupacademy.giovanna.mercadolivre.categoria.CategoriaRepository;
+import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
+import br.com.zupacademy.giovanna.mercadolivre.product.categoria.CategoriaRepository;
 import br.com.zupacademy.giovanna.mercadolivre.validation.ExistsId;
 import br.com.zupacademy.giovanna.mercadolivre.validation.UniqueValue;
 
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 public class CategoriaRequest {

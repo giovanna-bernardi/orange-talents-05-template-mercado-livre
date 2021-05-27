@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.seguranca.token;
+package br.com.zupacademy.giovanna.mercadolivre.security.token;
 
 public class TokenResponse {
     private String token;

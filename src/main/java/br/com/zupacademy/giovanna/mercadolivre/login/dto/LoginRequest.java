@@ -1,6 +1,5 @@
-package br.com.zupacademy.giovanna.mercadolivre.login;
+package br.com.zupacademy.giovanna.mercadolivre.login.dto;
 
-import org.apache.catalina.User;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 public class LoginRequest {

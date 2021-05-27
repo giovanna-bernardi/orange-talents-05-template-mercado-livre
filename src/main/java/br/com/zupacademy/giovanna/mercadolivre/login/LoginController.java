@@ -1,8 +1,8 @@
 package br.com.zupacademy.giovanna.mercadolivre.login;
 
-import br.com.zupacademy.giovanna.mercadolivre.seguranca.token.Token;
-import br.com.zupacademy.giovanna.mercadolivre.seguranca.token.TokenResponse;
-import com.fasterxml.jackson.databind.annotation.JsonValueInstantiator;
+import br.com.zupacademy.giovanna.mercadolivre.login.dto.LoginRequest;
+import br.com.zupacademy.giovanna.mercadolivre.security.token.Token;
+import br.com.zupacademy.giovanna.mercadolivre.security.token.TokenResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

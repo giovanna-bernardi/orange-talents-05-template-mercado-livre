@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.seguranca;
+package br.com.zupacademy.giovanna.mercadolivre.user;
 
 import br.com.zupacademy.giovanna.mercadolivre.user.UsuarioRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,10 +7,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthenticationService implements UserDetailsService {
+public class BuscaUsuarioPorUsername implements UserDetailsService {
     private final UsuarioRepository usuarioRepository;
 
-    public AuthenticationService(UsuarioRepository usuarioRepository) {
+    public BuscaUsuarioPorUsername(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 

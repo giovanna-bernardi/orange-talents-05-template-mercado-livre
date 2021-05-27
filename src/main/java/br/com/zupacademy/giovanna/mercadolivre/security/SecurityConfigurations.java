@@ -1,6 +1,7 @@
-package br.com.zupacademy.giovanna.mercadolivre.seguranca;
+package br.com.zupacademy.giovanna.mercadolivre.security;
 
-import br.com.zupacademy.giovanna.mercadolivre.seguranca.token.Token;
+import br.com.zupacademy.giovanna.mercadolivre.security.token.Token;
+import br.com.zupacademy.giovanna.mercadolivre.user.BuscaUsuarioPorUsername;
 import br.com.zupacademy.giovanna.mercadolivre.user.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private AuthenticationService authenticationService;
+    private BuscaUsuarioPorUsername buscaUsuarioPorUsername;
     @Autowired
     private Token token;
     @Autowired
@@ -37,7 +38,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        auth.userDetailsService(authenticationService)
+        auth.userDetailsService(buscaUsuarioPorUsername)
                 .passwordEncoder(passwordEncoder);
     }
 
@@ -45,9 +46,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
+                .antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/usuarios").permitAll()
                 .antMatchers(HttpMethod.POST,"/categorias").permitAll()
-                .antMatchers("/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/produtos").authenticated()
                 .anyRequest().authenticated()
                 .and().cors()
                 .and().csrf().disable()

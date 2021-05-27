@@ -1,6 +1,6 @@
-package br.com.zupacademy.giovanna.mercadolivre.seguranca;
+package br.com.zupacademy.giovanna.mercadolivre.security;
 
-import br.com.zupacademy.giovanna.mercadolivre.seguranca.token.Token;
+import br.com.zupacademy.giovanna.mercadolivre.security.token.Token;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
 import br.com.zupacademy.giovanna.mercadolivre.user.UsuarioRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

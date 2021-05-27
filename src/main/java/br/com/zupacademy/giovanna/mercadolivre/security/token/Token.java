@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.seguranca.token;
+package br.com.zupacademy.giovanna.mercadolivre.security.token;
 
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
 import io.jsonwebtoken.Claims;

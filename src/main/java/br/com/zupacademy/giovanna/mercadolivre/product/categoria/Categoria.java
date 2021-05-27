@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.categoria;
+package br.com.zupacademy.giovanna.mercadolivre.product.categoria;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
