@@ -2,6 +2,7 @@ package br.com.zupacademy.giovanna.mercadolivre.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,7 +12,10 @@ import org.springframework.util.StringUtils;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 @Entity
 public class Usuario implements UserDetails {
@@ -34,6 +38,8 @@ public class Usuario implements UserDetails {
     @PastOrPresent
     @Column(nullable = false)
     private LocalDateTime instanteCadastro = LocalDateTime.now();
+
+    private String authorities; // ROLE_ADMIN, ROLE_USER
 
     @Deprecated
     public Usuario() {
@@ -60,7 +66,16 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        if(authorities != null){
+            return Arrays.stream(authorities.split(","))
+                    .map(SimpleGrantedAuthority::new)
+                    .collect(Collectors.toList());
+        }
+        return Collections.emptyList();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     @Override

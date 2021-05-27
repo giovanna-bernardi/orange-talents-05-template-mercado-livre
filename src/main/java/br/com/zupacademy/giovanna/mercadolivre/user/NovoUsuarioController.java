@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/usuarios")
 public class NovoUsuarioController {
 
     private UsuarioRepository usuarioRepository;
