@@ -1,19 +1,16 @@
 package br.com.zupacademy.giovanna.mercadolivre.product.produto;
 
-import br.com.zupacademy.giovanna.mercadolivre.imagem.Imagem;
+import br.com.zupacademy.giovanna.mercadolivre.imagem.ImagemProduto;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.Caracteristica;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.dto.CaracteristicaRequest;
 import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
-import br.com.zupacademy.giovanna.mercadolivre.validation.ExistsId;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
-import java.sql.Array;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -59,8 +56,10 @@ public class Produto {
     private Set<Caracteristica> caracteristicas = new HashSet<>();
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
-    private Set<Imagem> imagens = new HashSet<>();
+    private Set<ImagemProduto> imagens = new HashSet<>();
 
+//    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+//    private Set<Opiniao> opinioes = new HashSet<>();
 
     @Deprecated
     public Produto() {
@@ -106,8 +105,8 @@ public class Produto {
     }
 
     public void adicionaImagens(Set<String> urls){
-        Set<Imagem> novasImagens = urls.stream()
-                .map(url -> new Imagem(url, this))
+        Set<ImagemProduto> novasImagens = urls.stream()
+                .map(url -> new ImagemProduto(url, this))
                 .collect(Collectors.toSet());
         this.imagens.addAll(novasImagens);
     }

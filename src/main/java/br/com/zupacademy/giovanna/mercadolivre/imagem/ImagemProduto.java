@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Imagem {
+public class ImagemProduto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Imagem {
     private Produto produto;
 
     @Deprecated
-    public Imagem() {
+    public ImagemProduto() {
     }
 
-    public Imagem(String caminhoImagem, Produto produto) {
+    public ImagemProduto(String caminhoImagem, Produto produto) {
         this.caminhoImagem = caminhoImagem;
         this.produto = produto;
     }
@@ -44,10 +44,10 @@ public class Imagem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Imagem imagem = (Imagem) o;
+        ImagemProduto imagemProduto = (ImagemProduto) o;
 
-        if (!caminhoImagem.equals(imagem.caminhoImagem)) return false;
-        return produto.equals(imagem.produto);
+        if (!caminhoImagem.equals(imagemProduto.caminhoImagem)) return false;
+        return produto.equals(imagemProduto.produto);
     }
 
     @Override
