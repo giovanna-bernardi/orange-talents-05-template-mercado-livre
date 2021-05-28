@@ -1,5 +1,6 @@
 package br.com.zupacademy.giovanna.mercadolivre.product.produto;
 
+import br.com.zupacademy.giovanna.mercadolivre.imagem.Imagem;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.Caracteristica;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.dto.CaracteristicaRequest;
 import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
@@ -12,11 +13,10 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
+import java.sql.Array;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Entity
@@ -58,6 +58,9 @@ public class Produto {
     @OneToMany(mappedBy = "produto", cascade = CascadeType.PERSIST)
     private Set<Caracteristica> caracteristicas = new HashSet<>();
 
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.MERGE)
+    private Set<Imagem> imagens = new HashSet<>();
+
 
     @Deprecated
     public Produto() {
@@ -94,6 +97,18 @@ public class Produto {
                 ", categoria=" + categoria +
                 ", vendedor=" + vendedor.getUsername() +
                 ", caracteristicas=" + caracteristicas +
+                ", imagens=" + imagens +
                 '}';
+    }
+
+    public boolean pertenceAo(Usuario usuario) {
+        return this.vendedor.equals(usuario);
+    }
+
+    public void adicionaImagens(Set<String> urls){
+        Set<Imagem> novasImagens = urls.stream()
+                .map(url -> new Imagem(url, this))
+                .collect(Collectors.toSet());
+        this.imagens.addAll(novasImagens);
     }
 }

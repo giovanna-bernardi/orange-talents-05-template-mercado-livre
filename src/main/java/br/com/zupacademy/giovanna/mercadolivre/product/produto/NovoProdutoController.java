@@ -4,11 +4,8 @@ import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
 import br.com.zupacademy.giovanna.mercadolivre.product.categoria.CategoriaRepository;
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.dto.ProdutoRequest;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
-import br.com.zupacademy.giovanna.mercadolivre.user.UsuarioRepository;
 import br.com.zupacademy.giovanna.mercadolivre.validation.NomeNaoPodeSerIgualValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +21,8 @@ public class NovoProdutoController {
     private final CategoriaRepository categoriaRepository;
     private final ProdutoRepository produtoRepository;
 
+    // Se tiver vários métodos na controller, para forçar apenas sobre o objeto específico:
+    // @InitBinder(value = "produtoRequest")
     @InitBinder
     public void init(WebDataBinder webDataBinder) {
         webDataBinder.addValidators(new NomeNaoPodeSerIgualValidator());

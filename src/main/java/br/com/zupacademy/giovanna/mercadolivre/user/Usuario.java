@@ -107,4 +107,24 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Usuario usuario = (Usuario) o;
+
+        if (!id.equals(usuario.id)) return false;
+        if (!login.equals(usuario.login)) return false;
+        return senha.equals(usuario.senha);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + login.hashCode();
+        result = 31 * result + senha.hashCode();
+        return result;
+    }
 }

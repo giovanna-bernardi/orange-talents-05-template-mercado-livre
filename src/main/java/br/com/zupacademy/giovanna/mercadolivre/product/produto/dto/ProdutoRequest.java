@@ -5,6 +5,7 @@ import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.Produto;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
 import br.com.zupacademy.giovanna.mercadolivre.validation.ExistsId;
+import br.com.zupacademy.giovanna.mercadolivre.validation.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import java.util.*;
 public class ProdutoRequest {
     
     @NotBlank
+    @UniqueValue(domainClass = Produto.class, fieldName = "nome")
     private String nome;
     
     @NotNull @Positive
@@ -33,21 +35,21 @@ public class ProdutoRequest {
     @ExistsId(domainClass = Categoria.class, fieldName = "id")
     private Long categoriaId;
 
-    @Size(min = 3) @Valid
-    private List<CaracteristicaRequest> caracteristicas = new ArrayList<>();
+    @NotNull @Size(min = 3) @Valid
+    private List<CaracteristicaRequest> caracteristicas;
 
     public ProdutoRequest( @NotBlank String nome,
                           @NotNull @Positive BigDecimal preco,
                           @NotNull @Positive int quantidadeDisponivel,
                           @NotBlank @Length(max = 1000) String descricao,
                           @NotNull Long categoriaId,
-                          List<CaracteristicaRequest> caracteristicas) {
+                          @NotNull @Size(min = 3) @Valid List<CaracteristicaRequest> caracteristicas) {
         this.nome = nome;
         this.preco = preco;
         this.quantidadeDisponivel = quantidadeDisponivel;
         this.descricao = descricao;
         this.categoriaId = categoriaId;
-        this.caracteristicas.addAll(caracteristicas);
+        this.caracteristicas =caracteristicas;
     }
 
     public Produto toModel(Categoria categoria, Usuario dono) {
