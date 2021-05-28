@@ -83,6 +83,10 @@ public class Produto {
                 .collect(Collectors.toSet()));
     }
 
+    public String getEmailDoVendedor() {
+        return this.vendedor.getUsername();
+    }
+
     @Override
     public String toString() {
         return "Produto{" +
