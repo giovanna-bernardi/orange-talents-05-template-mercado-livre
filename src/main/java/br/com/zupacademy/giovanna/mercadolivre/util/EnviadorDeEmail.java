@@ -2,7 +2,14 @@ package br.com.zupacademy.giovanna.mercadolivre.util;
 
 import br.com.zupacademy.giovanna.mercadolivre.product.pergunta.Pergunta;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Email;
+
 public interface EnviadorDeEmail {
 
-    String envia(Pergunta pergunta);
+    void envia(@NotBlank String body,
+                 @NotBlank String subject,
+                 @NotBlank String fromName,
+                 @NotBlank @Email String from,
+                 @NotBlank @Email String to);
 }

@@ -50,6 +50,14 @@ public class Pergunta {
         return titulo;
     }
 
+    public LocalDateTime getInstante() {
+        return instante;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
     public String getEmailDoVendedorDoProduto() {
         return this.produto.getEmailDoVendedor();
     }
@@ -67,5 +75,23 @@ public class Pergunta {
                 ", produto=" + produto +
                 ", donoDaPergunta=" + donoDaPergunta.getUsername() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Pergunta pergunta = (Pergunta) o;
+
+        if (!titulo.equals(pergunta.titulo)) return false;
+        return donoDaPergunta.equals(pergunta.donoDaPergunta);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = titulo.hashCode();
+        result = 31 * result + donoDaPergunta.hashCode();
+        return result;
     }
 }

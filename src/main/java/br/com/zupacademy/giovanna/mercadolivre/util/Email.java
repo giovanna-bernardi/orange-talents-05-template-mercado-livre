@@ -6,13 +6,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class Email {
 
-    private final EnviadorDeEmail enviadorDeEmailFake;
+    private final EnviadorDeEmail enviadorDeEmail;
 
-    public Email(EnviadorDeEmail enviadorDeEmailFake) {
-        this.enviadorDeEmailFake = enviadorDeEmailFake;
+    public Email(EnviadorDeEmail enviadorDeEmail) {
+        this.enviadorDeEmail = enviadorDeEmail;
     }
 
-    public String enviaPergunta(Pergunta pergunta){
-        return enviadorDeEmailFake.envia(pergunta);
+    public void enviaPergunta(Pergunta pergunta){
+        enviadorDeEmail.envia(
+                "<html>...</html>",
+                pergunta.getTitulo(),
+                pergunta.getEmailDoDonoDaPergunta(),
+                "novapergunta@nossomercadolivre.com",
+                pergunta.getEmailDoVendedorDoProduto()
+        );
     }
 }

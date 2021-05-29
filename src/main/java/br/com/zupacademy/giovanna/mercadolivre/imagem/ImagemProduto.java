@@ -32,6 +32,10 @@ public class ImagemProduto {
         this.produto = produto;
     }
 
+    public String getCaminhoImagem() {
+        return caminhoImagem;
+    }
+
     @Override
     public String toString() {
         return "Imagem{" +

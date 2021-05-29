@@ -47,8 +47,8 @@ public class NovaPerguntaController {
         // se a pergunta foi salva com sucesso
         if(novaPergunta.getId() != null) {
             // envia e-mail ao vendedor
-            String prototipoEmail = email.enviaPergunta(novaPergunta);
-            return prototipoEmail;
+            email.enviaPergunta(novaPergunta);
+            return novaPergunta.toString();
         }
 
         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
