@@ -1,6 +1,7 @@
 package br.com.zupacademy.giovanna.mercadolivre.util;
 
 import br.com.zupacademy.giovanna.mercadolivre.product.pergunta.Pergunta;
+import br.com.zupacademy.giovanna.mercadolivre.shopping.Compra;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,6 +20,16 @@ public class Email {
                 pergunta.getEmailDoDonoDaPergunta(),
                 "novapergunta@nossomercadolivre.com",
                 pergunta.getEmailDoVendedorDoProduto()
+        );
+    }
+
+    public void enviaCompra(Compra compra){
+        enviadorDeEmail.envia(
+                "<html>...</html>",
+                "Nova compra realizada",
+                compra.getEmailDoComprador(),
+                "comprarealizada@nossomercadolivre.com",
+                compra.getEmailDoVendedorDoProduto()
         );
     }
 }

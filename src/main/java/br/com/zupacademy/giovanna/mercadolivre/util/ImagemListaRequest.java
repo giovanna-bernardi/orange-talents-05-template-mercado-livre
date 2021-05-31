@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.imagem.dto;
+package br.com.zupacademy.giovanna.mercadolivre.util;
 
 import org.springframework.web.multipart.MultipartFile;
 

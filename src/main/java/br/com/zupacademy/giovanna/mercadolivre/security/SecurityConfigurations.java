@@ -52,6 +52,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/produtos/*").permitAll()
                 .antMatchers(HttpMethod.POST,"/categorias").authenticated() // só deixando explícito, pois no anyRequest ele já está para authenticated()
                 .antMatchers(HttpMethod.POST,"/produtos").authenticated()
+                .antMatchers(HttpMethod.POST,"/compras").authenticated()
                 .anyRequest().authenticated()
                 .and().cors()
                 .and().csrf().disable()

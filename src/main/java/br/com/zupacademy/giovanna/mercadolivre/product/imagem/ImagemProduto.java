@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.imagem;
+package br.com.zupacademy.giovanna.mercadolivre.product.imagem;
 
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.Produto;
 import org.hibernate.validator.constraints.URL;

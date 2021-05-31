@@ -1,7 +1,7 @@
 package br.com.zupacademy.giovanna.mercadolivre.product.produto;
 
 ;
-import br.com.zupacademy.giovanna.mercadolivre.imagem.dto.ImagemListaRequest;
+import br.com.zupacademy.giovanna.mercadolivre.util.ImagemListaRequest;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
 import br.com.zupacademy.giovanna.mercadolivre.util.Uploader;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;

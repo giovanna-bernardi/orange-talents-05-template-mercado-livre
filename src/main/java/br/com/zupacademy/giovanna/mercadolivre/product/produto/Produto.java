@@ -1,14 +1,14 @@
 package br.com.zupacademy.giovanna.mercadolivre.product.produto;
 
-import br.com.zupacademy.giovanna.mercadolivre.imagem.ImagemProduto;
+import br.com.zupacademy.giovanna.mercadolivre.product.imagem.ImagemProduto;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.Caracteristica;
 import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.dto.CaracteristicaRequest;
-import br.com.zupacademy.giovanna.mercadolivre.product.caracteristica.dto.CaracteristicaResponse;
 import br.com.zupacademy.giovanna.mercadolivre.product.categoria.Categoria;
 import br.com.zupacademy.giovanna.mercadolivre.product.opiniao.Opiniao;
 import br.com.zupacademy.giovanna.mercadolivre.product.opiniao.Opinioes;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -166,4 +166,14 @@ public class Produto {
                 '}';
     }
 
+    public boolean abateEstoque(@Positive int quantidadeEscolhida) {
+        Assert.isTrue(quantidadeEscolhida > 0, "A quantidade deve ser maior que zero. Quantidade passada " + quantidadeEscolhida);
+
+        if(this.quantidadeDisponivel >= quantidadeEscolhida) {
+            this.quantidadeDisponivel -= quantidadeEscolhida;
+            return true;
+        }
+
+        return false;
+    }
 }
