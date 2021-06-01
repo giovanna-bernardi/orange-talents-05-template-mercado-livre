@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.util;
+package br.com.zupacademy.giovanna.mercadolivre.util.email;
 
 import br.com.zupacademy.giovanna.mercadolivre.product.pergunta.Pergunta;
 

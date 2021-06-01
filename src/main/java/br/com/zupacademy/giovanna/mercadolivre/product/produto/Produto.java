@@ -149,6 +149,8 @@ public class Produto {
         return descricao;
     }
 
+    public Long getVendedorId() {return vendedor.getId();}
+
     @Override
     public String toString() {
         return "Produto{" +

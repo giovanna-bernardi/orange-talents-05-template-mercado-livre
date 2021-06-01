@@ -1,4 +1,4 @@
-package br.com.zupacademy.giovanna.mercadolivre.util;
+package br.com.zupacademy.giovanna.mercadolivre.util.imagem;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;

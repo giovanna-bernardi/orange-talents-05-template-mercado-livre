@@ -50,6 +50,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers(HttpMethod.POST,"/usuarios").permitAll()
                 .antMatchers(HttpMethod.GET,"/produtos/*").permitAll()
+                .antMatchers(HttpMethod.POST,"/notas-fiscais").permitAll()
+                .antMatchers(HttpMethod.POST,"/ranking").permitAll()
                 .antMatchers(HttpMethod.POST,"/categorias").authenticated() // só deixando explícito, pois no anyRequest ele já está para authenticated()
                 .antMatchers(HttpMethod.POST,"/produtos").authenticated()
                 .antMatchers(HttpMethod.POST,"/compras").authenticated()

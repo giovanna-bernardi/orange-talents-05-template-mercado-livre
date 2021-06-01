@@ -1,9 +1,9 @@
 package br.com.zupacademy.giovanna.mercadolivre.product.produto;
 
 ;
-import br.com.zupacademy.giovanna.mercadolivre.util.ImagemListaRequest;
+import br.com.zupacademy.giovanna.mercadolivre.util.imagem.ImagemListaRequest;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
-import br.com.zupacademy.giovanna.mercadolivre.util.Uploader;
+import br.com.zupacademy.giovanna.mercadolivre.util.imagem.Uploader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -4,8 +4,7 @@ import br.com.zupacademy.giovanna.mercadolivre.product.produto.Produto;
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.ProdutoRepository;
 import br.com.zupacademy.giovanna.mercadolivre.shopping.dto.CompraRequest;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
-import br.com.zupacademy.giovanna.mercadolivre.util.Email;
-import org.springframework.http.HttpStatus;
+import br.com.zupacademy.giovanna.mercadolivre.util.email.Email;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindException;
@@ -19,15 +18,17 @@ import java.net.URI;
 
 
 @RestController
-public class CompraController {
+public class IniciaCompraController {
 
     private final ProdutoRepository produtoRepository;
     private final CompraRepository compraRepository;
     private final Email email;
 
-    public CompraController(ProdutoRepository produtoRepository,
-                            CompraRepository compraRepository,
-                            Email email) {
+
+
+    public IniciaCompraController(ProdutoRepository produtoRepository,
+                                  CompraRepository compraRepository,
+                                  Email email) {
         this.produtoRepository = produtoRepository;
         this.compraRepository = compraRepository;
         this.email = email;
@@ -68,4 +69,6 @@ public class CompraController {
 
         throw problemaComEstoque;
     }
+
+
 }

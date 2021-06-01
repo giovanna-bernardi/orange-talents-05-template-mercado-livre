@@ -4,8 +4,7 @@ import br.com.zupacademy.giovanna.mercadolivre.product.pergunta.dto.PerguntaRequ
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.Produto;
 import br.com.zupacademy.giovanna.mercadolivre.product.produto.ProdutoRepository;
 import br.com.zupacademy.giovanna.mercadolivre.user.Usuario;
-import br.com.zupacademy.giovanna.mercadolivre.util.Email;
-import br.com.zupacademy.giovanna.mercadolivre.util.EnviadorDeEmail;
+import br.com.zupacademy.giovanna.mercadolivre.util.email.Email;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PathVariable;

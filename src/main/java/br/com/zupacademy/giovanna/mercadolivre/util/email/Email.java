@@ -1,8 +1,9 @@
-package br.com.zupacademy.giovanna.mercadolivre.util;
+package br.com.zupacademy.giovanna.mercadolivre.util.email;
 
 import br.com.zupacademy.giovanna.mercadolivre.product.pergunta.Pergunta;
 import br.com.zupacademy.giovanna.mercadolivre.shopping.Compra;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class Email {
@@ -32,4 +33,5 @@ public class Email {
                 compra.getEmailDoVendedorDoProduto()
         );
     }
+
 }
